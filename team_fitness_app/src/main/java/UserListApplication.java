@@ -68,10 +68,9 @@ class UserListApplication {
                 userList.remove(user);
                 System.out.println(" User deleted successfully");
                 return;
-            } else {
-                System.out.println(" No such user ");
             }
         }
+        System.out.println(" login or password is incorrect ");
     }
 
     public UserInput scanUserInput() {
