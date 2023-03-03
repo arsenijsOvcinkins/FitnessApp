@@ -3,9 +3,9 @@ import java.util.Objects;
 public class User {
 
     private String username;
-    private String password;
+    private final String password;
     private static int lastId = 0;
-    private int id;
+    private final int id;
 
     public User(String username, String password) {
         this.username = username;
