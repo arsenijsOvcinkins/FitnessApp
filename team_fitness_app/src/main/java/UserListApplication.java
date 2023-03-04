@@ -83,9 +83,9 @@ class UserListApplication {
         return userInput;
     }
 
-    class UserInput {
-        private String username;
-        private String password;
+    static class UserInput {
+        public String username;
+        public String password;
     }
 
 }
