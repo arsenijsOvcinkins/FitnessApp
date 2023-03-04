@@ -21,7 +21,7 @@ class UserListApplicationTest {
 
     @Test
     void shouldDeleteUser() {
-        // TODO: please fix test before pushing it to GitHub repo
+        //TODO: please fix test before pushing it to GitHub repo
 
         //userListApplication.registerUser((List) new User("John", "password123"));
         //userListApplication.registerUser((List) new User("Anna", "password789"));
