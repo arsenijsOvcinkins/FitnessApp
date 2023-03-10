@@ -51,8 +51,8 @@ class UserListApplication {
                 System.out.println("You are successfully logged-in!");
                 return;
             }
-            System.out.println("Invalid username or password. Please try again.");
         }
+        System.out.println("Invalid username or password. Please try again.");
     }
 
     void deleteUser(List<User> userList) {
