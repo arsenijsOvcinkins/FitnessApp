@@ -9,6 +9,11 @@ class InMemoryDatabaseImpl implements Database{
 
     public List<User> users = new ArrayList<>();
 
+  @Override
+    public List<User> getUsers() {
+        return users;
+    }
+
     @Override
     public void registerNewUser(User user) {
         user.setId(nextId);
