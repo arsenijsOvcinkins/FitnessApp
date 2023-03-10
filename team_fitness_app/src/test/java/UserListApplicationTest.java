@@ -10,23 +10,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserListApplicationTest {
 
+    private Registration registration;
     private UserListApplication userListApplication;
+
 
     @BeforeEach
     void setUp() {
-        List<User> userList = new ArrayList<>();
-        userListApplication = new UserListApplication();
+
+        List userList = new ArrayList<>();
+        registration = new Registration(userList);
     }
 
 
     @Test
     void shouldDeleteUser() {
-        // TODO: please fix test before pushing it to GitHub repo
-
-        //userListApplication.registerUser((List) new User("John", "password123"));
-        //userListApplication.registerUser((List) new User("Anna", "password789"));
-        //userListApplication.deleteUser((List) new User("John", "password123"));
-        //List<User> expected = List.of(new User("Anna", "password789"));
-        //assertEquals(1, userListApplication.getUserList().size());
+        UserListApplication.UserInput userInput = new UserListApplication.UserInput();
+        userInput.username = "John";
+        userInput.password = "password123";
+        userListApplication.deleteUser(userList);
+        assertEquals(1, registration.getUserList().size());
     }
 }
