@@ -1,33 +1,37 @@
-import jdk.jshell.spi.ExecutionControl;
-import org.junit.jupiter.api.BeforeEach;
+import database.Database;
+import database.InMemoryDatabaseImpl;
+import database.User;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserListApplicationTest {
 
-    private Registration registration;
-    private UserListApplication userListApplication;
-
-
-    @BeforeEach
-    void setUp() {
-
-        List userList = new ArrayList<>();
-        registration = new Registration(userList);
-    }
-
+    Database database = new InMemoryDatabaseImpl();
 
     @Test
-    void shouldDeleteUser() {
-        UserListApplication.UserInput userInput = new UserListApplication.UserInput();
-        userInput.username = "John";
-        userInput.password = "password123";
-        userListApplication.deleteUser(userList);
-        assertEquals(1, registration.getUserList().size());
+    public void registerUser() {
+        User user = new User("A", "a");
+        database.registerNewUser(user);
+        assertEquals(1, database.getUsers().size());
     }
+
+    @Test
+    public void deleteUser() {
+        User user1 = new User("A", "a");
+        User user2 = new User("B", "b");
+        database.registerNewUser(user1);
+        database.registerNewUser(user2);
+        database.deleteUser(1L, "a");
+        assertEquals(1, database.getUsers().size());
+    }
+
+    @Test
+    public void login() {
+        User user1 = new User("A", "a");
+        database.registerNewUser(user1);
+        assertTrue(database.login(1L, "a"));
+    }
+
 }
